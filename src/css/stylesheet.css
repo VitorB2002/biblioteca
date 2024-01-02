@@ -2,3 +2,27 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #55656b;
+    height: 100vh;
+    width: 100vw;
+}
+
+header, footer {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 10px;
+    background-color: #2e2e3a;
+    color: #dbbca7;
+}
+
+footer {
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
