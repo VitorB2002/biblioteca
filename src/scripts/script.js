@@ -1,4 +1,5 @@
 const myLibrary = [];
+const gridContainer = document.getElementsByTagName("main")[0];
 
 //Construtor do objeto livro
 function Book(nome, autor, ano, sinopse, pages, read){
@@ -8,7 +9,7 @@ function Book(nome, autor, ano, sinopse, pages, read){
     this.sinopse = sinopse;
     this.pages = pages;
     this.read = read;
-    this.info = this.nome + " escrito por " + this.autor + ", " + this.pages + " páginas, " + (this.read ? "lido" : "não lido");
+    this.info =  "\tEscrito por " + this.autor + ", " + this.pages + " páginas, " + (this.read ? "lido" : "<b>não lido</b>");
 }
 
 let theHobbit = new Book("O Hobbit", "J.R.R. Tolkien", 1996, "Bilbo Bolseiro era um dos mais respeitáveis hobbits de todo o Condado até que, um dia, o mago Gandalf bate à sua porta. A partir de então, toda sua vida pacata e campestre soprando anéis de fumaça com seu belo cachimbo começa a mudar. Ele é convocado a participar de uma aventura por ninguém menos do que Thorin Escudo-de-Carvalho, um príncipe do poderoso povo dos Anãos.\nEsta jornada fará Bilbo, Gandalf e 13 anãos atravessarem a Terra-média, passando por inúmeros perigos, como os imensos trols, as Montanhas Nevoentas infestadas de gobelins ou a muito antiga e misteriosa Trevamata, até chegarem (se conseguirem) na Montanha Solitária. Lá está um incalculável tesouro, mas há um porém. Deitado em cima dele está Smaug, o Dourado, um dragão malicioso que... bem, você terá que ler para descobrir.", 295, false)
@@ -20,5 +21,37 @@ function addBookToLibrary(book) {
 
 addBookToLibrary(theHobbit)
 addBookToLibrary(recursao)
+addBookToLibrary(theHobbit)
+addBookToLibrary(recursao)
+addBookToLibrary(theHobbit)
+addBookToLibrary(recursao)
+createGrid()
 
-console.log(myLibrary)
+function createGrid(){
+    //removendo todos os livros para atualizar a lista
+    while(gridContainer.hasChildNodes())
+        gridContainer.removeChild(gridContainer.firstChild)
+    
+    myLibrary.forEach((book, index) => {
+        let gridItem = document.createElement('div');
+        let titulo = document.createElement('h3');
+        let info = document.createElement('p');
+        let bookHeader = document.createElement('div')
+        let sinopse = document.createElement('p');
+        //Setando informações
+        titulo.innerHTML = book.nome
+        info.innerHTML = book.info
+        sinopse.innerHTML = "<b>Sinopse:</b> <br>" + "&nbsp;&nbsp;&nbsp;&nbsp;" + book.sinopse
+        //Adicionando filhos ao gridItem
+        bookHeader.append(titulo)
+        bookHeader.append(info)
+        gridItem.append(bookHeader)
+        gridItem.append(sinopse)
+        //Nomeando classe para estilização
+        bookHeader.className = 'book-header'
+        sinopse.className = 'book-text'
+        gridItem.className = 'book'
+        gridItem.id = index
+        gridContainer.appendChild(gridItem)
+    })
+}
