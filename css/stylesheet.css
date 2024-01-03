@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #dbbca7;
+}
+
+header, footer {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    align-items: center;
+    background-color: #2e2e3a;
+    color: #dbbca7;
+}
+
+hero {
+    display: flex;
+    background-color: #55656b;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+dialog {
+    top: calc(50% - 250px);
+    bottom: calc(50% - 250px);
+    left: calc(50% - 150px);
+    right: calc(50% - 150px);
+    height: 550px;
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-top: 5px;
+    gap: 15px;
+    min-width: 300px;
+}
+
+form > div{
+    display: flex;
+    width: 280px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+button {
+    width: 150px;
+    height: 35px;
+    padding: 5px;
+    background-color: #dbbca7;
+    border-radius: 15px;
+}
+
+#close {
+    width: 75px;
+    font-size: larger;
+    border-radius: 25px;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
+    width: 100%;
+    grid-gap: 5px;
+    margin-bottom: 42px;
+    height: 100%;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    font-size: 1em;
+    border: 2px solid #bc5d2e;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.book-header {
+    display: flex;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #de9151;
+}
+
+.book-text {
+    padding: 10px 15px 15px 15px;
+}
+
+footer {
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 42px;
+    bottom: 0;
+}
