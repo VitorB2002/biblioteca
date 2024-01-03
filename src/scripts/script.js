@@ -1,5 +1,6 @@
 const myLibrary = [];
 const gridContainer = document.getElementsByTagName("main")[0];
+const modal = document.querySelector("dialog");
 
 //Construtor do objeto livro
 function Book(nome, autor, ano, sinopse, pages, read){
@@ -17,6 +18,7 @@ let recursao = new Book("Recursão", "Blake Crouch", 2020, "Barry Sutton é poli
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
+    createGrid()
 }
 
 addBookToLibrary(theHobbit)
@@ -25,7 +27,6 @@ addBookToLibrary(theHobbit)
 addBookToLibrary(recursao)
 addBookToLibrary(theHobbit)
 addBookToLibrary(recursao)
-createGrid()
 
 function createGrid(){
     //removendo todos os livros para atualizar a lista
@@ -54,4 +55,12 @@ function createGrid(){
         gridItem.id = index
         gridContainer.appendChild(gridItem)
     })
+}
+
+function handleClick(){
+    modal.showModal()
+}
+
+function closeModal(){
+    modal.close()
 }

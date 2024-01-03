@@ -13,8 +13,54 @@
             <img style="padding: 10px;" src="./imgs/livro.png" alt="livro aberto" width="25px" height="25px">
             <h1 style="padding: 10px;">Minha livraria</h1>
         </header>
-        <hero></hero>
-        <main></main>
+
+        <hero>
+            <button
+                onclick="handleClick()"
+            >
+                <h3 style="color: #2e2e3a;">Adicionar Livro</h3>
+            </button>
+
+            <dialog>
+                <form>
+                    <div>
+                        <h3>Novo livro</h3>
+                        <button id="close" onclick="closeModal()">X</button>
+                    </div>
+                    
+                    <div>
+                        <label for="bookName">Título</label>
+                        <input type="text" id="bookName" name="bookName" required>
+                    </div>
+
+                    <div>
+                        <label for="author">Autor:</label>
+                        <input type="text" id="author" name="author" required>
+                    </div>
+
+                    <div>
+                        <label for="pages">Pagínas:</label>
+                        <input type="number" id="pages" name="pages" required>
+                    </div>
+
+                    <div>
+                        <label for="synopsis">Sinopse:</label>
+                        <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
+                    </div>
+
+                    <div>
+                        <label for="year">Ano de publicação</label>
+                        <input type="number" id="year" name="year" required>
+                    </div>
+                  
+                    <button type="button" onclick="addBook()">Adicionar</button>
+                </form>
+            </dialog>
+        </hero>
+
+        <main>
+            <div id="grid-container"></div>
+        </main>
         <footer>
             <h3 style="padding: 10px;">Inspirado por The Odin Project</h3>
         </footer>
